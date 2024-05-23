@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Wedding</title>
+  <style>
+    /* styles.css */
+    body {
+        font-family: 'Lato', sans-serif;
+        background-image: url('https://i.pinimg.com/originals/a7/64/66/a764664120082d952f78d00cde11c1bc.jpg');
+        background-size: cover;
+        background-position: center;
+        color: #333;
+    }
+
+    header {
+        background-color: rgba(226, 182, 138, 0.8); /* semi-transparent light khaki header */
+        padding: 20px;
+        text-align: center;
+    }
+
+    nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    nav li {
+        margin-right: 20px;
+    }
+
+    nav a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
+    section {
+        background-color: rgba(245, 245, 220, 0.8); /* semi-transparent khaki background */
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border: 2px solid #964B00; /* khaki border */
+        border-radius: 10px; /* rounded corners */
+        cursor: pointer; /* Add cursor pointer for click */
+    }
+
+    h1, h2 {
+        color: #964B00; /* dark khaki headings */
+    }
+
+    img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+    footer {
+        background-color: rgba(150, 75, 0, 0.8); /* semi-transparent dark khaki footer */
+        padding: 10px;
+        text-align: center;
+        color: #fff;
+    }
+
+    .details {
+        display: none; /* Hide details by default */
+    }
+  </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#schedule" onclick="toggleDetails('schedule')">Schedule and Place</a></li>
+                <li><a href="#attire" onclick="toggleDetails('attire')">Attire</a></li>
+                <li><a href="#gifts" onclick="toggleDetails('gifts')">Gifts</a></li>
+                <li><a href="#entourage" onclick="toggleDetails('entourage')">Principal Sponsors & Entourage</a></li>
+                <li><a href="#photos" onclick="toggleDetails('photos')">Photos</a></li>
+            </ul>
+        </nav>
+    </header>  
+    <main>
+        <section id="schedule">
+            <h2>Schedule and Place</h2>
+            <p><strong>Date:</strong> 18th of October 2024</p>
+            <p><strong>Vows:</strong> Our Lady of Assumption, Dauis, Bohol</p>
+            <p><strong>Reception:</strong> JJ's Seafood Village, K Of C Drive C Gallares St, 6300 Tagbilaran City, Bohol Province</p>
+            <div id="countdown"></div>
+            <div id="qrcode"></div>
+        </section>        
+        <section id="attire">
+            <h2>Attire</h2>
+            <p><strong>Bridal Gown:</strong> Charlow Arbasto</p>
+            <p><strong>Groom's Attire:</strong> Kim Villamor</p>
+        </section>
+        <section id="gifts">
+            <h2>Gifts</h2>
+            <!-- Your content here -->
+        </section>
+        <section id="entourage">
+            <h2 style="text-align: center;">Principal Sponsors & Entourage</h2>
+            <h3  style="text-align: center;">Principal Sponsors</h3>
+            <p><strong>Mrs. Felisidad Auxtero</strong> and <strong>Mr. Loreto Auxtero</strong></p>
+            <p><strong>Ms. Nanelyn Wate</strong> and <strong>Bro. Mark Paglicawan</strong></p>
+            
+            <h3 style="text-align: center;">Entourage</h3>
+            <p><strong>Groom's Men:</strong> Reil John Autida</p>
+            <p><strong>Maid of Honor:</strong> Guady Guadz</p>
+            <p><strong>Bridesmaids:</strong> Quin Sawyer Balili, Maria Theresa Butron, John Luij Gonzaga, Karyl Mae Berengel</p>
+            <h3 style="text-align: center;">Secondary Sponsors</h3>
+            <p><strong>Candle:</strong> Ms. Joan Boligao and Mr. Benj Licomis</p>
+            <p><strong> Veil:</strong> Ms. Kaye Leslie Paredes and Mr. Vence Josh Lusica</p>
+            <p><strong>Cord:</strong> Ms. Princess Judamae Autida and Mr. Angelito Casusula Jr.</p>
+            <p><strong>Coin Bearer:</strong> Aris Zaluaga</p>
+            <p><strong>Ring Bearer:</strong> Owen James</p>
+            <p><strong>Flower Girls:</strong> Angel Ferrer and Feljeth Magarao</p>
+        </section>
+        <section id="photos">
+            <h2>Photos</h2>
+            <div class="photo-gallery">
+                <img src="https://drive.google.com/uc?id=your_image_id" alt="Our Journey Starts Here">
+                <!-- Add more <img> tags for additional images -->
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Our Special Day</p>
+    </footer>
+
+    <!-- Script for toggling details -->
+    <script>
+        function hideAllDetails() {
+            var detailsSections = document.querySelectorAll('.details');
+            detailsSections.forEach(function(section) {
+                section.style.display = "none";
+            });
+        }
+
+        function toggleDetails(id) {
+            hideAllDetails(); // Hide all details sections
+            var details = document.getElementById(id).getElementsByClassName('details')[0];
+            if (details.style.display === "none") {
+                details.style.display = "block";
+            } else {
+                details.style.display = "none";
+            }
+        }
+
+        // Countdown timer function
+        function countdownTimer() {
+            var countDownDate = new Date("Oct 12, 2024 00:00:00").getTime();
+            var x = setInterval(function() {
+              var now = new Date().getTime();
+              var distance = countDownDate - now;
+              var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+              var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+              var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+              var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+              document.getElementById("countdown").innerHTML = "Countdown: " + days + "d " + hours + "h "
+              + minutes + "m " + seconds + "s ";
+              if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "EXPIRED";
+              }
+            }, 1000);
+        }
+
+        // Call countdownTimer function when the page loads
+        window.onload = countdownTimer;
+    </script>    
+</body>
+</html>
