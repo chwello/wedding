@@ -5,17 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Our Wedding</title>
   <style>
-    /* styles.css */
     body {
         font-family: 'Lato', sans-serif;
-        background-image: url('https://i.pinimg.com/originals/a7/64/66/a764664120082d952f78d00cde11c1bc.jpg');
-        background-size: cover;
-        background-position: center;
-        color: #333;
+        background-color: #f0f0f0; /* Shiny white background */
+        color: #000; /* Black text color */
     }
 
     header {
-        background-color: rgba(226, 182, 138, 0.8); /* semi-transparent light khaki header */
+        background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white header */
         padding: 20px;
         text-align: center;
     }
@@ -33,7 +30,7 @@
     }
 
     nav a {
-        color: #fff;
+        color: #000; /* Black text color */
         text-decoration: none;
     }
 
@@ -45,40 +42,51 @@
     }
 
     section {
-        background-color: rgba(245, 245, 220, 0.8); /* semi-transparent khaki background */
+        background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
         padding: 20px;
         margin-bottom: 20px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        border: 2px solid #964B00; /* khaki border */
-        border-radius: 10px; /* rounded corners */
-        cursor: pointer; /* Add cursor pointer for click */
+        border: 2px solid #000; /* Black border */
+        border-radius: 10px;
+        cursor: pointer;
     }
 
-    h1, h2 {
-        color: #964B00; /* dark khaki headings */
+    h1, h2, h3 {
+        color: #000; /* Black text color */
     }
 
     img {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-        border-radius: 10px;
-    }
+    width: 100%;
+    height: auto; /* Ensure the aspect ratio is maintained */
+    border-radius: 10px;
+    /* Removed object-fit: cover; */
+}
 
     footer {
-        background-color: rgba(150, 75, 0, 0.8); /* semi-transparent dark khaki footer */
+        background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white footer */
         padding: 10px;
         text-align: center;
-        color: #fff;
+        color: #000; /* Black text color */
     }
 
     .details {
-        display: none; /* Hide details by default */
+        display: none;
+    }
+
+    .main-title {
+        font-family: 'Great Vibes', cursive; /* Calligraphy font */
+        font-size: 4em; /* Large font size */
+        font-weight: bold; /* Bold font */
+        text-align: center;
+        margin: 20px 0;
+        color: #000; /* Black text color */
     }
   </style>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Great+Vibes&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
+        <div class="main-title">Necah and Ralph</div>
         <nav>
             <ul>
                 <li><a href="#schedule" onclick="toggleDetails('schedule')">Schedule and Place</a></li>
@@ -92,11 +100,11 @@
     <main>
         <section id="schedule">
             <h2>Schedule and Place</h2>
-            <p><strong>Date:</strong> 18th of October 2024</p>
+            <p><strong>Date:</strong> 12th of October 2024</p>
             <p><strong>Vows:</strong> Our Lady of Assumption, Dauis, Bohol</p>
-            <p><strong>Reception:</strong> JJ's Seafood Village, K Of C Drive C Gallares St, 6300 Tagbilaran City, Bohol Province</p>
+            <p><strong>Reception:</strong> Bohol Tropics Resort, Graham Ave, Tagbilaran City, Bohol</p>
+            <p><a href="https://www.google.com/maps/place/Bohol+Tropics+Resort/@9.653866,123.8465741,17z/data=!3m1!4b1!4m9!3m8!1s0x33aa4c53eae5965b:0xf53c1217a6bcfc81!5m2!4m1!1i2!8m2!3d9.653866!4d123.849149!16s%2Fg%2F1tpg_84s?entry=ttu" target="_blank">View location on Google Maps</a></p>
             <div id="countdown"></div>
-            <div id="qrcode"></div>
         </section>        
         <section id="attire">
             <h2>Attire</h2>
@@ -105,21 +113,20 @@
         </section>
         <section id="gifts">
             <h2>Gifts</h2>
-            <!-- Your content here -->
+            <!-- Add content for gifts -->
         </section>
         <section id="entourage">
             <h2 style="text-align: center;">Principal Sponsors & Entourage</h2>
-            <h3  style="text-align: center;">Principal Sponsors</h3>
+            <h3 style="text-align: center;">Principal Sponsors</h3>
             <p><strong>Mrs. Felisidad Auxtero</strong> and <strong>Mr. Loreto Auxtero</strong></p>
             <p><strong>Ms. Nanelyn Wate</strong> and <strong>Bro. Mark Paglicawan</strong></p>
-            
             <h3 style="text-align: center;">Entourage</h3>
             <p><strong>Groom's Men:</strong> Reil John Autida</p>
             <p><strong>Maid of Honor:</strong> Guady Guadz</p>
             <p><strong>Bridesmaids:</strong> Quin Sawyer Balili, Maria Theresa Butron, John Luij Gonzaga, Karyl Mae Berengel</p>
             <h3 style="text-align: center;">Secondary Sponsors</h3>
             <p><strong>Candle:</strong> Ms. Joan Boligao and Mr. Benj Licomis</p>
-            <p><strong> Veil:</strong> Ms. Kaye Leslie Paredes and Mr. Vence Josh Lusica</p>
+            <p><strong>Veil:</strong> Ms. Kaye Leslie Paredes and Mr. Vence Josh Lusica</p>
             <p><strong>Cord:</strong> Ms. Princess Judamae Autida and Mr. Angelito Casusula Jr.</p>
             <p><strong>Coin Bearer:</strong> Aris Zaluaga</p>
             <p><strong>Ring Bearer:</strong> Owen James</p>
@@ -128,8 +135,19 @@
         <section id="photos">
             <h2>Photos</h2>
             <div class="photo-gallery">
-                <img src="https://drive.google.com/uc?id=your_image_id" alt="Our Journey Starts Here">
-                <!-- Add more <img> tags for additional images -->
+                <img src="https://i.postimg.cc/1nrFSF5P/cpm35-2023-12-03-201205-252.jpg" alt="Our Journey Starts Here">
+                <img src="https://i.postimg.cc/JDLXSx8P/dhalf-2024-03-16-193851-926.jpg" alt="Special Moment">
+                <img src="https://i.postimg.cc/7JL5yQWM/IMG20190209144942-Original.jpg" alt="Cherished Memory">
+                <img src="https://i.postimg.cc/S2dn3pDx/IMG-20220516-120839-Original.jpg" alt="Happy Day">
+                <img src="https://i.postimg.cc/WdqJ3Cb5/IMG-20220920-203638-Original.jpg" alt="Beautiful Scene">
+                <img src="https://i.postimg.cc/JtKXdj25/IMG-4460.jpg" alt="Wonderful Moment">
+                <img src="https://i.postimg.cc/9wX7Qfr9/IMG-4574.jpg" alt="Smiling Faces">
+                <img src="https://i.postimg.cc/qgpnL1j7/IMG-4783-3-Original.jpg" alt="Joyful Time">
+                <img src="https://i.postimg.cc/9rM93r35/IMG-5258.jpg" alt="Fun Together">
+                <img src="https://i.postimg.cc/fJr9MDZ3/IMG-5682.jpg" alt="Amazing Day">
+                <img src="https://i.postimg.cc/LqdgZDJ2/IMG-6011.jpg" alt="Memorable Occasion">
+                <img src="https://i.postimg.cc/McyM0BBR/IMG-6068.jpg" alt="Lovely Moment">
+                <img src="https://i.postimg.cc/N9Byd08n/IMG-6319.jpg" alt="Happy Memory">
             </div>
         </section>
     </main>
@@ -137,7 +155,6 @@
         <p>&copy; 2023 Our Special Day</p>
     </footer>
 
-    <!-- Script for toggling details -->
     <script>
         function hideAllDetails() {
             var detailsSections = document.querySelectorAll('.details');
@@ -146,37 +163,34 @@
             });
         }
 
-        function toggleDetails(id) {
-            hideAllDetails(); // Hide all details sections
-            var details = document.getElementById(id).getElementsByClassName('details')[0];
-            if (details.style.display === "none") {
-                details.style.display = "block";
-            } else {
-                details.style.display = "none";
-            }
-        }
+function toggleDetails(id) {
+    hideAllDetails();
+    var details = document.getElementById(id).getElementsByClassName('details')[0];
+    if (details.style.display === "none") {
+        details.style.display = "block";
+    } else {
+        details.style.display = "none";
+    }
+}
 
-        // Countdown timer function
-        function countdownTimer() {
-            var countDownDate = new Date("Oct 12, 2024 00:00:00").getTime();
-            var x = setInterval(function() {
-              var now = new Date().getTime();
-              var distance = countDownDate - now;
-              var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-              var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-              var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-              var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-              document.getElementById("countdown").innerHTML = "Countdown: " + days + "d " + hours + "h "
-              + minutes + "m " + seconds + "s ";
-              if (distance < 0) {
-                clearInterval(x);
-                document.getElementById("countdown").innerHTML = "EXPIRED";
-              }
-            }, 1000);
-        }
+function countdownTimer() {
+    var countDownDate = new Date("Oct 12, 2024 00:00:00").getTime();
+    var x = setInterval(function() {
+      var now = new Date().getTime();
+      var distance = countDownDate - now;
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      document.getElementById("countdown").innerHTML = "Countdown: " + days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+      if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("countdown").innerHTML = "EXPIRED";
+      }
+    }, 1000);
+}
 
-        // Call countdownTimer function when the page loads
-        window.onload = countdownTimer;
-    </script>    
+window.onload = countdownTimer;
+</script>    
 </body>
 </html>
