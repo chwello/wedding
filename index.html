@@ -15,23 +15,64 @@
         background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white header */
         padding: 20px;
         text-align: center;
+        position: relative;
     }
 
-    nav ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        justify-content: space-between;
-    }
-
-    nav li {
-        margin-right: 20px;
-    }
-
-    nav a {
+    .main-title {
+        font-family: 'Great Vibes', cursive; /* Calligraphy font */
+        font-size: 4em; /* Large font size */
+        font-weight: bold; /* Bold font */
+        margin: 20px 0;
         color: #000; /* Black text color */
+    }
+
+    .hamburger {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        cursor: pointer;
+        z-index: 2;
+    }
+
+    .hamburger div {
+        width: 30px;
+        height: 3px;
+        background-color: #000;
+        margin: 5px 0;
+    }
+
+    .sidebar {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: rgba(255, 255, 255, 0.95); /* Semi-transparent white background */
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+    }
+
+    .sidebar a {
+        padding: 10px 15px;
         text-decoration: none;
+        font-size: 25px;
+        color: #000; /* Black text color */
+        display: block;
+        transition: 0.3s;
+    }
+
+    .sidebar a:hover {
+        color: #555;
+    }
+
+    .sidebar .closebtn {
+        position: absolute;
+        top: 20px;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
     }
 
     main {
@@ -41,26 +82,24 @@
         padding: 20px;
     }
 
-    section {
-        background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
-        padding: 20px;
-        margin-bottom: 20px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        border: 2px solid #000; /* Black border */
-        border-radius: 10px;
-        cursor: pointer;
-    }
+    .section {
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    border-radius: 0; /* Remove border radius */
+}
 
     h1, h2, h3 {
         color: #000; /* Black text color */
     }
 
     img {
-    width: 100%;
-    height: auto; /* Ensure the aspect ratio is maintained */
-    border-radius: 10px;
-    /* Removed object-fit: cover; */
-}
+        width: 100%;
+        height: auto; /* Ensure the aspect ratio is maintained */
+        border-radius: 10px;
+    }
 
     footer {
         background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white footer */
@@ -72,31 +111,28 @@
     .details {
         display: none;
     }
-
-    .main-title {
-        font-family: 'Great Vibes', cursive; /* Calligraphy font */
-        font-size: 4em; /* Large font size */
-        font-weight: bold; /* Bold font */
-        text-align: center;
-        margin: 20px 0;
-        color: #000; /* Black text color */
-    }
   </style>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Great+Vibes&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
+        <div class="hamburger" onclick="toggleSidebar()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
         <div class="main-title">Necah and Ralph</div>
-        <nav>
-            <ul>
-                <li><a href="#schedule" onclick="toggleDetails('schedule')">Schedule and Place</a></li>
-                <li><a href="#attire" onclick="toggleDetails('attire')">Attire</a></li>
-                <li><a href="#gifts" onclick="toggleDetails('gifts')">Gifts</a></li>
-                <li><a href="#entourage" onclick="toggleDetails('entourage')">Principal Sponsors & Entourage</a></li>
-                <li><a href="#photos" onclick="toggleDetails('photos')">Photos</a></li>
-            </ul>
-        </nav>
-    </header>  
+    </header>
+    
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="toggleSidebar()">&times;</a>
+        <a href="#schedule" onclick="toggleDetails('schedule')">Schedule and Place</a>
+        <a href="#attire" onclick="toggleDetails('attire')">Attire</a>
+        <a href="#gifts" onclick="toggleDetails('gifts')">Gifts</a>
+        <a href="#entourage" onclick="toggleDetails('entourage')">Principal Sponsors & Entourage</a>
+        <a href="#photos" onclick="toggleDetails('photos')">Photos</a>
+    </div>
+  
     <main>
         <section id="schedule">
             <h2>Schedule and Place</h2>
@@ -156,6 +192,15 @@
     </footer>
 
     <script>
+        function toggleSidebar() {
+            var sidebar = document.getElementById("mySidebar");
+            if (sidebar.style.width === "250px") {
+                sidebar.style.width = "0";
+            } else {
+                sidebar.style.width = "250px";
+            }
+        }
+
         function hideAllDetails() {
             var detailsSections = document.querySelectorAll('.details');
             detailsSections.forEach(function(section) {
@@ -163,34 +208,34 @@
             });
         }
 
-function toggleDetails(id) {
-    hideAllDetails();
-    var details = document.getElementById(id).getElementsByClassName('details')[0];
-    if (details.style.display === "none") {
-        details.style.display = "block";
-    } else {
-        details.style.display = "none";
-    }
-}
+        function toggleDetails(id) {
+            hideAllDetails();
+            var details = document.getElementById(id).getElementsByClassName('details')[0];
+            if (details.style.display === "none") {
+                details.style.display = "block";
+            } else {
+                details.style.display = "none";
+            }
+        }
 
-function countdownTimer() {
-    var countDownDate = new Date("Oct 12, 2024 00:00:00").getTime();
-    var x = setInterval(function() {
-      var now = new Date().getTime();
-      var distance = countDownDate - now;
-      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-      document.getElementById("countdown").innerHTML = "Countdown: " + days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
-      if (distance < 0) {
-        clearInterval(x);
-        document.getElementById("countdown").innerHTML = "EXPIRED";
-      }
-    }, 1000);
-}
+        function countdownTimer() {
+            var countDownDate = new Date("Oct 12, 2024 00:00:00").getTime();
+            var x = setInterval(function() {
+              var now = new Date().getTime();
+              var distance = countDownDate - now;
+              var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+              var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+              var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+              var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+              document.getElementById("countdown").innerHTML = "Countdown: " + days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+              if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "EXPIRED";
+              }
+            }, 1000);
+        }
 
-window.onload = countdownTimer;
-</script>    
+        window.onload = countdownTimer;
+    </script>    
 </body>
 </html>
