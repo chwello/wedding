@@ -6,7 +6,7 @@
   <title>Our Wedding</title>
   <style>
     body {
-        font-family: 'Lato', sans-serif;
+        font-family: 'Alex Brush', cursive;
         background-color: #f0f0f0; /* Shiny white background */
         color: #000; /* Black text color */
     }
@@ -92,6 +92,7 @@
 }
 
     h1, h2, h3 {
+        font-family: 'Great Vibes', cursive; /* font */
         color: #000; /* Black text color */
     }
 
@@ -135,7 +136,7 @@
   
     <main>
         <section id="schedule">
-            <h2>Schedule and Place</h2>
+            <h2 style="text-align: center;">Schedule and Place</h2>
             <p><strong>Date:</strong> 12th of October 2024</p>
             <p><strong>Vows:</strong> Our Lady of Assumption, Dauis, Bohol</p>
             <p><strong>Reception:</strong> Bohol Tropics Resort, Graham Ave, Tagbilaran City, Bohol</p>
@@ -143,7 +144,7 @@
             <div id="countdown"></div>
         </section>        
         <section id="attire">
-            <h2>Attire</h2>
+            <h2 style="text-align: center;">Attire</h2>
             <p><strong>Bridal Gown:</strong> Charlow Arbasto</p>
             <p><strong>Groom's Attire:</strong> Kim Villamor</p>
         </section>
@@ -216,6 +217,8 @@
             } else {
                 details.style.display = "none";
             }
+            // Close the sidebar when a choice is clicked
+            toggleSidebar();
         }
 
         function countdownTimer() {
